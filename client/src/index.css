@@ -1,0 +1,489 @@
+@import "tailwindcss";
+
+
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+
+:root {
+
+    /* 60% - Neutral */
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --surface-soft: #f1f5f9;
+
+    /* 30% - Dark */
+    --sidebar: #0f172a;
+    --sidebar-hover: #1e293b;
+
+    /* 10% - Primary */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #dbeafe;
+
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    --border: #e2e8f0;
+
+    --success: #16a34a;
+    --success-light: #dcfce7;
+
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+
+    --danger: #dc2626;
+    --danger-light: #fee2e2;
+
+    --info: #0ea5e9;
+    --info-light: #e0f2fe;
+
+    --heading: "Inter", sans-serif;
+    --mono: "JetBrains Mono", monospace;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-width: 320px;
+
+    background: var(--background);
+
+    color: var(--text-primary);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#root {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+ 
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+
+    font-family: inherit;
+
+}
+
+
+button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.6;
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+select,
+textarea {
+
+    font-family: inherit;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 7px;
+
+    height: 7px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #f1f5f9;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #cbd5e1;
+
+    border-radius: 999px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #94a3b8;
+
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+
+    background: #dbeafe;
+
+    color: #1e3a8a;
+
+}
+
+
+/* =========================================================
+   PAGE TRANSITION
+========================================================= */
+
+.page-enter {
+
+    animation:
+        pageEnter
+        0.25s
+        ease-out;
+
+}
+
+
+@keyframes pageEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(6px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
+.dashboard-card {
+
+    background: var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.dashboard-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+.dashboard-table th {
+
+    padding:
+        13px
+        16px;
+
+    text-align: left;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing:
+        0.05em;
+
+    color:
+        var(--text-secondary);
+
+    background:
+        var(--surface-soft);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.dashboard-table td {
+
+    padding:
+        15px
+        16px;
+
+    font-size: 14px;
+
+    color:
+        #334155;
+
+    border-bottom:
+        1px solid
+        #f1f5f9;
+
+}
+
+
+.dashboard-table tbody tr {
+
+    transition:
+        background 0.15s ease;
+
+}
+
+
+.dashboard-table tbody tr:hover {
+
+    background:
+        #f8fafc;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color:
+        #334155;
+
+}
+
+
+.form-input {
+
+    width: 100%;
+
+    padding:
+        11px
+        13px;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius:
+        10px;
+
+    background:
+        white;
+
+    color:
+        #0f172a;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+
+}
+
+
+.form-input:hover {
+
+    border-color:
+        #94a3b8;
+
+}
+
+
+.form-input:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.12);
+
+}
+
+
+.form-input::placeholder {
+
+    color:
+        #94a3b8;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(15, 23, 42, 0.55);
+
+    backdrop-filter:
+        blur(4px);
+
+}
+
+
+.modal-card {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        18px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(15, 23, 42, 0.18);
+
+}
+
+
+/* =========================================================
+   MOBILE TABLE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .dashboard-table th,
+    .dashboard-table td {
+
+        padding:
+            12px;
+
+    }
+
+}
